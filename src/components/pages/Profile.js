@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { HashLink as Link } from "react-router-hash-link";
-import ImgProfile from "../images/me.png";
+import ImgProfile from "../../images/me.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Profile extends Component {

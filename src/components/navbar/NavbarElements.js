@@ -13,6 +13,7 @@ class NavbarElements extends Component {
   render() {
     return (
       <ul className={this.props.class} id={this.props.id}>
+        {this.props.first}
         <li>
           <Link to="/">
             <FontAwesomeIcon icon={faHome} size="lg" />
