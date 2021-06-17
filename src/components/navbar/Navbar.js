@@ -3,6 +3,15 @@ import { HashLink as Link } from "react-router-hash-link";
 import M from "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.min.css";
 import NavbarElements from "./NavbarElements";
+import NavbarTest from "./NavbarTest";
+
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
 
 class Navbar extends Component {
   componentDidMount() {
@@ -38,6 +47,32 @@ class Navbar extends Component {
       </div>
     </li>
   );
+
+  list = (
+    <>
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </>
+  );
   render() {
     return (
       <div className="navbar-fixed">
@@ -55,7 +90,11 @@ class Navbar extends Component {
           </div>
         </nav>
 
-        <NavbarElements class="sidenav" id="side-nav" first={this.first} />
+        {/* <NavbarElements class="sidenav" id="side-nav" first={this.first} /> */}
+        <NavbarTest
+          buttons={["left"]}
+          list={this.list}
+        />
       </div>
     );
   }
